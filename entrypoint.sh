@@ -1,4 +1,4 @@
 #!/bin/sh -l
 
-sh -c "/composer/vendor/bin/phpstan $*"
+sh -c "composer install && /composer/vendor/bin/phpstan $*"
 
