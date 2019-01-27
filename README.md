@@ -32,6 +32,15 @@ action "PHPStan" {
 
 **You can copy/paste the .github folder (under examples/) to your project and thats all!**
 
+## PHPStan plugins
+You might want to add extra plugins to phpstan to be more strict. To install them define
+`COMPOSER_PACKAGES` as environment variable in your workflow.
+
+## Additional Alpine packages
+The docker image contains a minimal set of installed php packages. For some projects you
+might want to add more php extensions. Define `PHP_EXTENSIONS` as environment variable in
+your workflow to do so.
+
 ## Docker
 
 A Docker-Image is built automatically and located here:
