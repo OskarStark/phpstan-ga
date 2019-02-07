@@ -1,4 +1,4 @@
-FROM phpstan/phpstan:0.10
+FROM phpstan/phpstan:0.11
 
 LABEL "com.github.actions.name"="OSKAR-phpstan"
 LABEL "com.github.actions.description"="phpstan"
