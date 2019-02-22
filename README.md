@@ -26,7 +26,7 @@ workflow "Main" {
 
 action "PHPStan" {
   uses = "docker://oskarstark/phpstan-ga"
-+  args = "analyse src/ --level=4"
++  args = "analyse src/ --level=5"
 }
 ```
 
