@@ -41,5 +41,5 @@ https://cloud.docker.com/u/oskarstark/repository/docker/oskarstark/phpstan-ga
 
 You can run it in any given directory like this:
 
-`docker run --rm -it -w=/app -v ${PWD}:/app oskarstark/phpstan-ga:latest analyse src/`
+`docker run --rm -it -w=/app -v ${PWD}:/app oskarstark/phpstan-ga:latest analyse src/ --level=5`
 
