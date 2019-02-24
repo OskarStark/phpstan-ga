@@ -36,10 +36,15 @@ action "PHPStan" {
 You might want to add extra plugins to phpstan to be more strict. To install them define
 `COMPOSER_PACKAGES` as environment variable in your workflow.
 
+**Please note that installing plugins using the environment variable has impact on the execution time. To speed up your workflow push a prepared image to a docker repository**
+
 ## Additional Alpine packages
 The docker image contains a minimal set of installed php packages. For some projects you
 might want to add more php extensions. Define `PHP_EXTENSIONS` as environment variable in
 your workflow to do so.
+
+**Please note that installing packages using the environment variable has impact on the execution time. To speed up your workflow push a prepared image to a docker repository**
+
 
 ## Docker
 
