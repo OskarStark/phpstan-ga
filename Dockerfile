@@ -16,7 +16,6 @@ RUN composer global require phpstan/phpstan ^0.11 \
     && composer global require phpstan/phpstan-phpunit \
     && composer global require phpstan/phpstan-nette \
     && composer global require phpstan/phpstan-symfony \
-    && composer global require phpstan/phpstan-symfony \
     && composer global require phpstan/phpstan-mockery \
     && composer global require phpstan/phpstan-webmozart-assert \
     && composer global show | grep phpstan
