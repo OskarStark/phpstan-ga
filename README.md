@@ -35,7 +35,7 @@ action "PHPStan" {
 ## Docker
 
 A Docker-Image is built automatically and located here:
-https://cloud.docker.com/u/oskarstark/repository/docker/oskarstark/phpstan-ga
+https://hub.docker.com/r/oskarstark/phpstan-ga
 
 You can run it in any given directory like this:
 
