@@ -9,7 +9,7 @@ LABEL "repository"="http://github.com/oskarstark/phpstan-ga"
 LABEL "homepage"="http://github.com/actions"
 LABEL "maintainer"="Oskar Stark <oskarstark@googlemail.com>"
 
-COPY --from=composer:1.8.4 /usr/bin/composer /usr/local/bin/composer
+COPY --from=composer:1.9.0 /usr/bin/composer /usr/local/bin/composer
 
 RUN composer global require phpstan/phpstan ^0.11.9 \
     && composer global require phpstan/phpstan-doctrine \
