@@ -4,30 +4,34 @@
 
 You can use it as a Github Action like this:
 
-_.github/main.workflow_
+_.github/workflow/push.yml_
 ```
-workflow "Main" {
-  on = "push"
-  resolves = ["PHPStan"]
-}
-
-action "PHPStan" {
-  uses = "docker://oskarstark/phpstan-ga"
-  args = "analyse src/"
-}
+on: push
+name: Main
+jobs:
+  phpstan:
+    name: PHPStan
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: PHPStan
+      uses: docker://oskarstark/phpstan-ga
 ```
 
 _to use a specific level:_
 ```diff
-workflow "Main" {
-  on = "push"
-  resolves = ["PHPStan"]
-}
-
-action "PHPStan" {
-  uses = "docker://oskarstark/phpstan-ga"
-+  args = "analyse src/ --level=5"
-}
+on: push
+name: Main
+jobs:
+  phpstan:
+    name: PHPStan
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: PHPStan
+      uses: docker://oskarstark/phpstan-ga
++      with:
++        args: analyse src/ --level=5
 ```
 
 **You can copy/paste the .github folder (under examples/) to your project and thats all!**
