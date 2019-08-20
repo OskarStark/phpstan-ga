@@ -11,7 +11,7 @@ LABEL "maintainer"="Oskar Stark <oskarstark@googlemail.com>"
 
 COPY --from=composer:1.9.0 /usr/bin/composer /usr/local/bin/composer
 
-RUN composer global require phpstan/phpstan ^0.11.13 \
+RUN composer global require phpstan/phpstan ^0.11.14 \
     && composer global require phpstan/phpstan-doctrine \
     && composer global require phpstan/phpstan-phpunit \
     && composer global require phpstan/phpstan-nette \
