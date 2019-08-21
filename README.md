@@ -4,7 +4,7 @@
 
 You can use it as a Github Action like this:
 
-_.github/workflow/push.yml_
+_.github/workflows/push.yml_
 ```
 on: push
 name: Main
