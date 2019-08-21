@@ -34,6 +34,11 @@ jobs:
 +        args: analyse src/ --level=5
 ```
 
+_to use a phpstan.neon.dist configuration file:_
+
+just drop the `phpstan.neon.dist` in your repository root and it will be taken into account.
+
+
 **You can copy/paste the .github folder (under examples/) to your project and thats all!**
 
 ## Docker
