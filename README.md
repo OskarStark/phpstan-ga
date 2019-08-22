@@ -4,10 +4,10 @@
 
 You can use it as a Github Action like this:
 
-_.github/workflows/push.yml_
+_.github/workflows/test.yml_
 ```
-on: push
-name: Main
+on: [push, pull_request]
+name: Test
 jobs:
   phpstan:
     name: PHPStan
@@ -20,8 +20,8 @@ jobs:
 
 _to use a specific level:_
 ```diff
-on: push
-name: Main
+on: [push, pull_request]
+name: Test
 jobs:
   phpstan:
     name: PHPStan
