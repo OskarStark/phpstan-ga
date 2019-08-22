@@ -1,5 +1,5 @@
-on: push
-name: Main
+on: [push, pull_request]
+name: Test
 jobs:
   phpstan:
     name: PHPStan
