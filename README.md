@@ -16,6 +16,8 @@ jobs:
     - uses: actions/checkout@master
     - name: PHPStan
       uses: docker://oskarstark/phpstan-ga
+      with:
+        args: analyse src/
 ```
 
 _to use a specific level:_
@@ -30,7 +32,8 @@ jobs:
     - uses: actions/checkout@master
     - name: PHPStan
       uses: docker://oskarstark/phpstan-ga
-+      with:
+      with:
+-        args: analyse src/
 +        args: analyse src/ --level=5
 ```
 
