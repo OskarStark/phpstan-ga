@@ -1,4 +1,4 @@
-FROM exozet/php-fpm:7.3
+FROM php:7.3-alpine
 
 LABEL "com.github.actions.name"="OSKAR-phpstan"
 LABEL "com.github.actions.description"="phpstan"
@@ -10,6 +10,9 @@ LABEL "homepage"="http://github.com/actions"
 LABEL "maintainer"="Oskar Stark <oskarstark@googlemail.com>"
 
 COPY --from=composer:1.9.1 /usr/bin/composer /usr/local/bin/composer
+
+RUN mkdir /composer
+ENV COMPOSER_HOME=/composer
 
 RUN composer global require phpstan/phpstan ^0.11.19 \
     && composer global require phpstan/phpstan-doctrine \
