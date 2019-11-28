@@ -14,6 +14,8 @@ COPY --from=composer:1.9.1 /usr/bin/composer /usr/local/bin/composer
 RUN mkdir /composer
 ENV COMPOSER_HOME=/composer
 
+RUN echo "memory_limit=-1" > $PHP_INI_DIR/conf.d/memory-limit.ini
+
 RUN composer global require phpstan/phpstan ^0.11.19 \
     && composer global require phpstan/phpstan-doctrine \
     && composer global require phpstan/phpstan-phpunit \
