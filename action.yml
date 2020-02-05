@@ -1,0 +1,15 @@
+# https://help.github.com/en/articles/metadata-syntax-for-github-actions
+
+author: 'OskarStark'
+
+branding:
+    icon: 'check'
+    color: 'blue'
+
+description: 'Use PHPStan via GithubAction.'
+
+name: 'OSKAR-phpstan'
+
+runs:
+    using: 'docker'
+    image: 'docker://oskarstark/phpstan-ga'
