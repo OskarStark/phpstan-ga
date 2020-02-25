@@ -37,6 +37,24 @@ jobs:
 +        args: analyse src/ --level=5
 ```
 
+_to install dev dependencies:_
+```diff
+on: [push, pull_request]
+name: Test
+jobs:
+  phpstan:
+    name: PHPStan
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: PHPStan
+      uses: docker://oskarstark/phpstan-ga
++     env:
++       REQUIRE_DEV: true
+      with:
+        args: analyse src/
+```
+
 _to use a phpstan.neon.dist configuration file:_
 
 just drop the `phpstan.neon.dist` in your repository root and it will be taken into account.

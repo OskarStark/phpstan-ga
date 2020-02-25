@@ -1,3 +1,8 @@
 #!/bin/sh -l
 
-sh -c "composer install --no-scripts --no-progress --quiet --no-dev && /composer/vendor/bin/phpstan $*"
+NO_DEV="--no-dev"
+if [ "$REQUIRE_DEV" = "true" ]; then
+    NO_DEV=""
+fi
+
+sh -c "composer install --no-scripts --no-progress --quiet $NO_DEV && /composer/vendor/bin/phpstan $*"
