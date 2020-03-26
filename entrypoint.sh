@@ -5,4 +5,5 @@ if [ "$REQUIRE_DEV" = "true" ]; then
     NO_DEV=""
 fi
 
-sh -c "composer install --no-scripts --no-progress --quiet $NO_DEV && /composer/vendor/bin/phpstan $*"
+composer install --no-scripts --no-progress --quiet $NO_DEV
+/composer/vendor/bin/phpstan $*
