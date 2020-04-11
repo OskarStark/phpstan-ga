@@ -1,5 +1,7 @@
 #!/bin/sh -l
 
+/composer/vendor/bin/phpstan --version
+
 NO_DEV="--no-dev"
 if [ "$REQUIRE_DEV" = "true" ]; then
     NO_DEV=""
