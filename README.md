@@ -55,6 +55,24 @@ jobs:
         args: analyse src/
 ```
 
+_to skip checking the platfrom requirements:_
+```diff
+on: [push, pull_request]
+name: Test
+jobs:
+  phpstan:
+    name: PHPStan
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: PHPStan
+      uses: docker://oskarstark/phpstan-ga
++     env:
++        CHECK_PLATFORM_REQUIREMENTS: false
+      with:
+        args: analyse src/
+```
+
 _to use a phpstan.neon.dist configuration file:_
 
 just drop the `phpstan.neon.dist` in your repository root and it will be taken into account.
