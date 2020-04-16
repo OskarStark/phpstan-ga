@@ -2,6 +2,10 @@
 
 /composer/vendor/bin/phpstan --version
 
+echo "::group::Installed PHPStan extensions"
+composer show | grep phpstan
+echo "::endgroup::"
+
 NO_DEV="--no-dev"
 if [ "$REQUIRE_DEV" = "true" ]; then
     NO_DEV=""
