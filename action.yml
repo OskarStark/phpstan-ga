@@ -10,12 +10,6 @@ description: 'Use PHPStan via GithubAction.'
 
 name: 'OSKAR-phpstan'
 
-inputs:
-  version:
-    description: phpstan version, defaults to latest
-    required: false
-    default: latest
-
 runs:
     using: 'docker'
-    image: 'docker://oskarstark/phpstan-ga:${{ inputs.version }}'
+    image: 'docker://oskarstark/phpstan-ga'
