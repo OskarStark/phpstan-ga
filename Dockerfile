@@ -9,7 +9,7 @@ LABEL "repository"="http://github.com/oskarstark/phpstan-ga"
 LABEL "homepage"="http://github.com/actions"
 LABEL "maintainer"="Oskar Stark <oskarstark@googlemail.com>"
 
-COPY --from=composer:1.9.3 /usr/bin/composer /usr/local/bin/composer
+COPY --from=composer:1.10.10 /usr/bin/composer /usr/local/bin/composer
 
 RUN mkdir /composer
 ENV COMPOSER_HOME=/composer
