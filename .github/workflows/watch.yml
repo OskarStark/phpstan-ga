@@ -1,0 +1,39 @@
+name: Watch
+
+on:
+    workflow_dispatch:
+    schedule:
+        - cron: '30 */4 * * *'
+
+jobs:
+    update-version:
+        name: Automatically get latest PHPStan version and commit
+
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: "Checkout code"
+              uses: actions/checkout@v2
+              with:
+                  ref: master
+
+            - name: "Update Dockerfile and action.yml"
+              id: fetch_version
+              run: |
+                  latest=$(curl -s https://packagist.org/packages/phpstan/phpstan.json|jq '[.package.versions[]|select(.version|test("^\\d+\\.\\d+\\.\\d+$"))|.version]|max_by(.|[splits("[.]")]|map(tonumber))')
+                  latest=$(echo $latest | tr -d '"')
+                  echo "Latest PHPStan version is $latest"
+                  echo ::set-output name=latest::$latest
+                  sed -i -re "s/ENV VERSION=.*/ENV VERSION=$latest/" Dockerfile
+                  cat Dockerfile
+                  sed -i -re "s/phpstan-ga:[0-9.]+/phpstan-ga:$latest/" action.yml
+                  cat action.yml
+
+            - name: "Commit updated files"
+              uses: stefanzweifel/git-auto-commit-action@v4
+              with:
+                  commit_author: "Oskar Stark <oskarstark@googlemail.com>"
+                  commit_message: "Enhancement: Upgrade to PHPStan ${{ steps.fetch_version.outputs.latest }}"
+                  commit_user_email: "oskarstark@googlemail.com"
+                  commit_user_name: "Oskar Stark"
+                  tagging_message: ${{ steps.fetch_version.outputs.latest }}
