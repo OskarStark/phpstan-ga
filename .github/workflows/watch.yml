@@ -36,4 +36,5 @@ jobs:
                   commit_message: "Enhancement: Upgrade to PHPStan ${{ steps.fetch_version.outputs.latest }}"
                   commit_user_email: "oskarstark@googlemail.com"
                   commit_user_name: "Oskar Stark"
+                  branch: master
                   tagging_message: ${{ steps.fetch_version.outputs.latest }}
