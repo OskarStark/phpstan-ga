@@ -11,6 +11,9 @@ jobs:
 
         runs-on: ubuntu-latest
 
+        outputs:
+            latest: ${{ steps.fetch_version.outputs.latest }}
+
         steps:
             - name: "Checkout code"
               uses: actions/checkout@v2
@@ -51,7 +54,7 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
-                  tag_name: ${{ steps.fetch_version.outputs.latest }}
-                  release_name: "Use PHPStan ${{ steps.fetch_version.outputs.latest }}"
+                  tag_name: ${{ update-version.outputs.latest }}
+                  release_name: "Use PHPStan ${{ update-version.outputs.latest }}"
                   draft: false
                   prerelease: false
