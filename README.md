@@ -46,7 +46,7 @@ jobs:
     name: PHPStan
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v2
     - name: PHPStan
       uses: docker://oskarstark/phpstan-ga
 +     env:
@@ -64,7 +64,7 @@ jobs:
     name: PHPStan
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v2
     - name: PHPStan
       uses: docker://oskarstark/phpstan-ga
 +     env:
