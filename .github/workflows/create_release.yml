@@ -1,0 +1,24 @@
+name: Create release
+
+on:
+    push:
+        # Sequence of patterns matched against refs/tags
+        tags:
+            -'*'
+
+jobs:
+    create-release:
+        name: Create release
+
+        runs-on: ubuntu-latest
+
+        steps:        
+            - name: "Create Release ${{ needs.update-version.outputs.latest }}"
+              uses: actions/create-release@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  tag_name: ${{ github.ref }}
+                  release_name: "Use PHPStan ${{ github.ref }}"
+                  draft: false
+                  prerelease: false

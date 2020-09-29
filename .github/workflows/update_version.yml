@@ -1,4 +1,4 @@
-name: Watch
+name: Update version
 
 on:
     workflow_dispatch:
@@ -10,9 +10,6 @@ jobs:
         name: Automatically get latest PHPStan version and commit
 
         runs-on: ubuntu-latest
-
-        outputs:
-            latest: ${{ steps.fetch_version.outputs.latest }}
 
         steps:
             - name: "Checkout code"
@@ -40,21 +37,4 @@ jobs:
                   commit_user_email: "oskarstark@googlemail.com"
                   commit_user_name: "Oskar Stark"
                   branch: master
-
-    create-release:
-        needs: update-version
-
-        name: Create a release
-
-        runs-on: ubuntu-latest
-
-        steps:        
-            - name: "Create Release"
-              uses: actions/create-release@v1
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-              with:
-                  tag_name: ${{ needs.update-version.outputs.latest }}
-                  release_name: "Use PHPStan ${{ needs.update-version.outputs.latest }}"
-                  draft: false
-                  prerelease: false
+                  tagging_message: ${{ steps.fetch_version.outputs.latest }}
