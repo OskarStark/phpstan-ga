@@ -38,6 +38,14 @@ jobs:
                   commit_user_name: "Oskar Stark"
                   branch: master
 
+    create-release:
+        needs: update-version
+
+        name: Create a release
+
+        runs-on: ubuntu-latest
+
+        steps:        
             - name: "Create Release"
               uses: actions/create-release@v1
               env:
