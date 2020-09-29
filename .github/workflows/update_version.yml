@@ -1,4 +1,4 @@
-name: Watch
+name: Update version
 
 on:
     workflow_dispatch:
@@ -38,7 +38,12 @@ jobs:
                   commit_user_name: "Oskar Stark"
                   branch: master
 
-            - name: "Create Release"
+            - name: "Checkout code"
+              uses: actions/checkout@v2
+              with:
+                  ref: master
+
+            - name: "Create Release ${{ steps.fetch_version.outputs.latest }}"
               uses: actions/create-release@v1
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
