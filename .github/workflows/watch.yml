@@ -54,7 +54,7 @@ jobs:
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
               with:
-                  tag_name: ${{ update-version.outputs.latest }}
-                  release_name: "Use PHPStan ${{ update-version.outputs.latest }}"
+                  tag_name: ${{ needs.update-version.outputs.latest }}
+                  release_name: "Use PHPStan ${{ needs.update-version.outputs.latest }}"
                   draft: false
                   prerelease: false
