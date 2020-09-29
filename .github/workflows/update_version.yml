@@ -38,3 +38,17 @@ jobs:
                   commit_user_name: "Oskar Stark"
                   branch: master
                   tagging_message: ${{ steps.fetch_version.outputs.latest }}
+
+            - name: "Checkout code"
+              uses: actions/checkout@v2
+              with:
+                  ref: master
+
+            - name: "Create Release ${{ github.ref }}"
+              uses: actions/create-release@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  release_name: "Use PHPStan ${{ steps.fetch_version.outputs.latest }}"
+                  draft: false
+                  prerelease: false
