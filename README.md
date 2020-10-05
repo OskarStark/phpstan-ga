@@ -7,14 +7,24 @@ You can use it as a Github Action like this:
 ```yaml
 # .github/workflows/test.yml 
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
 name: Test
+
 jobs:
   phpstan:
     name: PHPStan
+
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2
+    - name: "Checkout"
+      uses: actions/checkout@v2
+
     - name: PHPStan
       uses: docker://oskarstark/phpstan-ga
       with:
@@ -23,17 +33,6 @@ jobs:
 
 _to use a specific level:_
 ```diff
-# .github/workflows/test.yml 
-
-on: [push, pull_request]
-name: Test
-jobs:
-  phpstan:
-    name: PHPStan
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: PHPStan
       uses: docker://oskarstark/phpstan-ga
       with:
 -        args: analyse src/
@@ -42,17 +41,6 @@ jobs:
 
 _to install dev dependencies:_
 ```diff
-# .github/workflows/test.yml 
-
-on: [push, pull_request]
-name: Test
-jobs:
-  phpstan:
-    name: PHPStan
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: PHPStan
       uses: docker://oskarstark/phpstan-ga
 +     env:
 +       REQUIRE_DEV: true
@@ -62,17 +50,6 @@ jobs:
 
 _to skip checking the platform requirements:_
 ```diff
-# .github/workflows/test.yml 
-
-on: [push, pull_request]
-name: Test
-jobs:
-  phpstan:
-    name: PHPStan
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - name: PHPStan
       uses: docker://oskarstark/phpstan-ga
 +     env:
 +        CHECK_PLATFORM_REQUIREMENTS: false
