@@ -60,7 +60,7 @@ jobs:
         args: analyse src/
 ```
 
-_to skip checking the platfrom requirements:_
+_to skip checking the platform requirements:_
 ```diff
 # .github/workflows/test.yml 
 
