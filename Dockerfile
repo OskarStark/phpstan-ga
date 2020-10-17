@@ -16,7 +16,7 @@ ENV COMPOSER_HOME=/composer
 
 RUN echo "memory_limit=-1" > $PHP_INI_DIR/conf.d/memory-limit.ini
 
-ENV VERSION=0.12.42
+ENV VERSION=0.12.50
 
 RUN composer global require phpstan/phpstan $VERSION \
     && composer global require phpstan/extension-installer \
