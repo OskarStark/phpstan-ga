@@ -3,7 +3,7 @@
 /composer/vendor/bin/phpstan --version
 
 echo "::group::Installed PHPStan extensions"
-composer show | grep phpstan
+composer show "*phpstan*"
 echo "::endgroup::"
 
 IGNORE_PLATFORM_REQS=""
