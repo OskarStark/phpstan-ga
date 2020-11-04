@@ -26,7 +26,7 @@ RUN composer global require phpstan/phpstan $VERSION \
     && composer global require phpstan/phpstan-symfony \
     && composer global require phpstan/phpstan-mockery \
     && composer global require phpstan/phpstan-webmozart-assert \
-    && composer global show | grep phpstan
+    && composer global show "*phpstan*"
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
