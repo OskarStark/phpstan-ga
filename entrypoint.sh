@@ -16,7 +16,7 @@ if [ "$REQUIRE_DEV" = "true" ]; then
     NO_DEV=""
 fi
 
-COMPOSER_COMMAND="composer install --no-scripts --no-progress $NO_DEV $IGNORE_PLATFORM_REQS"
+COMPOSER_COMMAND="composer install --no-progress $NO_DEV $IGNORE_PLATFORM_REQS"
 echo "::group::$COMPOSER_COMMAND"
 $COMPOSER_COMMAND
 echo "::endgroup::"
