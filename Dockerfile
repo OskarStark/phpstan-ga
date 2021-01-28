@@ -1,4 +1,4 @@
-FROM php:7.4-alpine
+FROM exozet/php-fpm:7.4.13-alpine
 
 LABEL "com.github.actions.name"="OSKAR-phpstan"
 LABEL "com.github.actions.description"="phpstan"
