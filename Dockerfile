@@ -1,13 +1,13 @@
 FROM php:8.0-alpine
 
-LABEL "com.github.actions.name"="OSKAR-phpstan"
+LABEL "com.github.actions.name"="UKKOcom-phpstan"
 LABEL "com.github.actions.description"="phpstan"
 LABEL "com.github.actions.icon"="check"
 LABEL "com.github.actions.color"="blue"
 
-LABEL "repository"="http://github.com/oskarstark/phpstan-ga"
+LABEL "repository"="http://github.com/SPLCompanyOy/phpstan-ga"
 LABEL "homepage"="http://github.com/actions"
-LABEL "maintainer"="Oskar Stark <oskarstark@googlemail.com>"
+LABEL "maintainer"="Matias Mäki <matias.maki@ukko.fi>"
 
 COPY --from=composer:2.2.4 /usr/bin/composer /usr/local/bin/composer
 
