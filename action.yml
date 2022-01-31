@@ -1,6 +1,6 @@
 # https://help.github.com/en/articles/metadata-syntax-for-github-actions
 
-author: 'OskarStark'
+author: 'trm42'
 
 branding:
     icon: 'check'
@@ -8,8 +8,8 @@ branding:
 
 description: 'Use PHPStan via GithubAction.'
 
-name: 'OSKAR-phpstan'
+name: 'UKKOcom-phpstan'
 
 runs:
     using: 'docker'
-    image: 'docker://oskarstark/phpstan-ga:1.7.15'
+    image: 'docker://ukkocom/phpstan-ga:1.7.15'
