@@ -8,7 +8,7 @@ branding:
 
 description: 'Use PHPStan via GithubAction.'
 
-name: 'UKKOcom-phpstan'
+name: 'ukkocom-phpstan'
 
 runs:
     using: 'docker'
