@@ -1,6 +1,6 @@
 FROM php:8.0-alpine
 
-LABEL "com.github.actions.name"="ukkocom-phpstan"
+LABEL "com.github.actions.name"="UKKOcom-phpstan"
 LABEL "com.github.actions.description"="phpstan"
 LABEL "com.github.actions.icon"="check"
 LABEL "com.github.actions.color"="blue"
