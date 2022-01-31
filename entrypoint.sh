@@ -4,6 +4,8 @@ set -e
 
 /composer/vendor/bin/phpstan --version
 
+cd src
+
 echo "::group::Installed PHPStan extensions"
 composer show "*phpstan*"
 echo "::endgroup::"
@@ -17,8 +19,6 @@ NO_DEV="--no-dev"
 if [ "$REQUIRE_DEV" = "true" ]; then
     NO_DEV=""
 fi
-
-cd ./src
 
 COMPOSER_COMMAND="composer install --no-progress --no-scripts $NO_DEV $IGNORE_PLATFORM_REQS"
 echo "::group::$COMPOSER_COMMAND"
