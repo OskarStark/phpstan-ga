@@ -12,4 +12,4 @@ name: 'OSKAR-phpstan'
 
 runs:
     using: 'docker'
-    image: 'docker://oskarstark/phpstan-ga:1.5.5'
+    image: 'docker://oskarstark/phpstan-ga:1.5.6'
