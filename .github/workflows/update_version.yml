@@ -58,3 +58,35 @@ jobs:
                   release_name: ${{ steps.tag.outputs.new_tag }}
                   commitish: master
                   body: "Upgrade PHPStan to ${{ steps.tag.outputs.new_tag }}"
+
+    publish_docker_images:
+        needs: [update-version]
+        runs-on: ubuntu-20.04
+       
+        if: github.ref == 'refs/heads/master' || github.event_name == 'release'
+        steps:
+        - name: Checkout
+          uses: actions/checkout@v2
+        - name: Docker meta
+          id: meta
+          uses: crazy-max/ghaction-docker-meta@v2
+          with:
+              images: oskarstark/phpstan-ga 
+              tags: |
+                  type=raw,value=latest,enable=${{ endsWith(github.ref, 'master') }}
+                  type=ref,event=tag
+              flavor: |
+                  latest=false
+        - name: Login to DockerHub
+          if: github.event_name != 'pull_request'
+          uses: docker/login-action@v1
+          with:
+              username: ${{ secrets.DOCKERHUB_USERNAME }}
+              password: ${{ secrets.DOCKERHUB_TOKEN }}
+        - name: Build and push
+          uses: docker/build-push-action@v2
+          with:
+              context: .
+              push: ${{ github.event_name != 'pull_request' }}
+              tags: ${{ steps.meta.outputs.tags }}
+              labels: ${{ steps.meta.outputs.labels }}
