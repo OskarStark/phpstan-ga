@@ -1,4 +1,4 @@
-FROM php:8.1-alpine
+FROM php:8.2-alpine
 
 LABEL "com.github.actions.name"="OSKAR-phpstan"
 LABEL "com.github.actions.description"="phpstan"
@@ -9,14 +9,14 @@ LABEL "repository"="http://github.com/oskarstark/phpstan-ga"
 LABEL "homepage"="http://github.com/actions"
 LABEL "maintainer"="Oskar Stark <oskarstark@googlemail.com>"
 
-COPY --from=composer:2.5.1 /usr/bin/composer /usr/local/bin/composer
+COPY --from=composer:2.5.5 /usr/bin/composer /usr/local/bin/composer
 
 RUN mkdir /composer
 ENV COMPOSER_HOME=/composer
 
 RUN echo "memory_limit=-1" > $PHP_INI_DIR/conf.d/memory-limit.ini
 
-ENV VERSION=1.10.15
+ENV VERSION=1.11.0
 
 RUN composer global require phpstan/phpstan $VERSION \
     && composer global config --no-plugins allow-plugins.phpstan/extension-installer true \
