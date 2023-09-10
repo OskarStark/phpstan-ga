@@ -27,7 +27,7 @@ jobs:
                   echo ::set-output name=latest::$latest
                   sed -i -re "s/ENV VERSION=.*/ENV VERSION=$latest/" Dockerfile
                   cat Dockerfile
-                  sed -i -re "s/phpstan-ga:[0-9.]+/phpstan-ga:$latest/" action.yml
+                  sed -i -re "s/phpstan-ga:([0-9.]+)?/phpstan-ga:$latest/" action.yml
                   cat action.yml
 
             - name: "Commit changes"
