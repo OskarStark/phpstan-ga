@@ -48,6 +48,19 @@ _to install dev dependencies:_
         args: analyse src/
 ```
 
+_to execute some command before and/or after composer install:_
+```diff
+      uses: docker://oskarstark/phpstan-ga
++     env:
++       PRE_COMPOSER_COMMANDS:
++         - composer config minimum-stability dev
++         - composer config prefer-stable true
++       POST_COMPOSER_COMMANDS:
++         - composer outdated
+      with:
+        args: analyse src/
+```
+
 _to skip checking the platform requirements:_
 ```diff
       uses: docker://oskarstark/phpstan-ga
