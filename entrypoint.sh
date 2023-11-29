@@ -20,6 +20,12 @@ fi
 
 COMPOSER_COMMAND="composer install --no-progress $NO_DEV $IGNORE_PLATFORM_REQS"
 echo "::group::$COMPOSER_COMMAND"
+
+if [ "$ALLOW_DEV" = "true" ]; then
+    composer config minimum-stability dev
+    composer config prefer-stable true
+fi
+
 $COMPOSER_COMMAND
 echo "::endgroup::"
 /composer/vendor/bin/phpstan $*
