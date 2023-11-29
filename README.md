@@ -48,6 +48,15 @@ _to install dev dependencies:_
         args: analyse src/
 ```
 
+_to allow dev dependencies:_
+```diff
+      uses: docker://oskarstark/phpstan-ga
++     env:
++       ALLOW_DEV: true
+      with:
+        args: analyse src/
+```
+
 _to skip checking the platform requirements:_
 ```diff
       uses: docker://oskarstark/phpstan-ga
