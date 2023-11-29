@@ -18,21 +18,8 @@ if [ "$REQUIRE_DEV" = "true" ]; then
     NO_DEV=""
 fi
 
-if [ -z "$PRE_COMPOSER_COMMANDS" ]; then
-    for str in ${PRE_COMPOSER_COMMANDS[@]}; do
-        eval "$str"
-    done
-fi
-
 COMPOSER_COMMAND="composer install --no-progress $NO_DEV $IGNORE_PLATFORM_REQS"
 echo "::group::$COMPOSER_COMMAND"
-
-if [ -z "$POST_COMPOSER_COMMANDS" ]; then
-    for str in ${POST_COMPOSER_COMMANDS[@]}; do
-        eval "$str"
-    done
-fi
-
 $COMPOSER_COMMAND
 echo "::endgroup::"
 /composer/vendor/bin/phpstan $*
