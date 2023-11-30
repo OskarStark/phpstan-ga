@@ -1,4 +1,4 @@
-FROM php:8.2-alpine
+FROM php:8.3-alpine
 
 LABEL "com.github.actions.name"="OSKAR-phpstan"
 LABEL "com.github.actions.description"="phpstan"
