@@ -13,7 +13,7 @@ jobs:
 
         steps:
             - name: "Checkout code"
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
               with:
                   ref: master
                   fetch-depth: '0'
@@ -62,16 +62,16 @@ jobs:
     publish_docker_images:
         needs: [update-version]
         runs-on: ubuntu-20.04
-       
+
         if: github.ref == 'refs/heads/master' || github.event_name == 'release'
         steps:
         - name: Checkout
-          uses: actions/checkout@v3
+          uses: actions/checkout@v4
         - name: Docker meta
           id: meta
           uses: crazy-max/ghaction-docker-meta@v2
           with:
-              images: oskarstark/phpstan-ga 
+              images: oskarstark/phpstan-ga
               tags: |
                   type=raw,value=latest,enable=${{ endsWith(github.ref, 'master') }}
                   type=ref,event=tag
