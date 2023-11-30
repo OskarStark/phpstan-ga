@@ -37,7 +37,7 @@ jobs:
               uses: docker/setup-buildx-action@v2.9.1
 
             - name: Build and push images
-              uses: docker/build-push-action@v4
+              uses: docker/build-push-action@v5
               with:
                   push: true
                   builder: ${{ steps.buildx.outputs.name }}
