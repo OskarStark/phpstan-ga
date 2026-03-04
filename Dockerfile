@@ -1,4 +1,4 @@
-FROM php:8.3-alpine
+FROM php:8.5-alpine
 
 LABEL "com.github.actions.name"="OSKAR-phpstan"
 LABEL "com.github.actions.description"="phpstan"
@@ -9,7 +9,7 @@ LABEL "repository"="http://github.com/oskarstark/phpstan-ga"
 LABEL "homepage"="http://github.com/actions"
 LABEL "maintainer"="Oskar Stark <oskarstark@googlemail.com>"
 
-COPY --from=composer:2.6.5 /usr/bin/composer /usr/local/bin/composer
+COPY --from=composer:2.9.5 /usr/bin/composer /usr/local/bin/composer
 
 RUN mkdir /composer
 ENV COMPOSER_HOME=/composer
